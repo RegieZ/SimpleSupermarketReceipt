@@ -1,211 +1,185 @@
-package fundamentalEnhance;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 
-//ÉÌÆ·Àà
+/**
+ * ç®€æ˜“è¶…å¸‚å°ç¥¨
+ *
+ * @author Regino
+ */
 class Goods {
-	private String id;  //ÉÌÆ·id
-	private String name; //Ãû³Æ
-	private double price; //µ¥¼Û
-	private String unit;  //¼Æ¼Ûµ¥Î»
+    private String id;
+    private String name;
+    private double price;
+    private String unit;
+    private int count;
 
-	private int count; //ÊıÁ¿
+    public Goods() {
+    }
 
-	//¿Õ²ÎºÍ´ø²Î¹¹Ôì·½·¨
-	public Goods() {
-	}
+    public Goods(String id, String name, double price, String unit) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.unit = unit;
+    }
 
-	public Goods(String id, String name, double price, String unit) {
-		this.id = id;
-		this.name = name;
-		this.price = price;
-		this.unit = unit;
-	}
+    public String getId() {
+        return id;
+    }
 
-	//getterºÍsetter·½·¨
-	public String getId() {
-		return id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public double getPrice() {
+        return price;
+    }
 
-	public double getPrice() {
-		return price;
-	}
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    public String getUnit() {
+        return unit;
+    }
 
-	public String getUnit() {
-		return unit;
-	}
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
 
-	public void setUnit(String unit) {
-		this.unit = unit;
-	}
+    public int getCount() {
+        return count;
+    }
 
-	public int getCount() {
-		return count;
-	}
-
-	public void setCount(int count) {
-		this.count = count;
-	}
+    public void setCount(int count) {
+        this.count = count;
+    }
 
 }
 
+public class test {
+    public static void main(String[] args) {
+        ArrayList<Goods> list = new ArrayList<>();
+        list.add(new Goods("001", "æ ¸æ¡ƒ", 15.5, "æ–¤"));
+        list.add(new Goods("002", "é¥¼å¹²", 14.5, "åŒ…"));
+        list.add(new Goods("003", "ç§»åŠ¨ç¡¬ç›˜", 345.0, "ä¸ª"));
+        list.add(new Goods("004", "é«˜æ¸…æ— ç ", 199.0, "G"));
+        Scanner sc = new Scanner(System.in);
 
-//Ö÷·½·¨ÔËĞĞÀà
-public class SupermarketReceipt {
-	public static void main(String[] args) {
-		//´´½¨4¸öÉÌÆ·¶ÔÏó
-		ArrayList<Goods> list = new ArrayList<>();
-		list.add(new Goods("001","ÉÙÁÖºËÌÒ",15.5,"½ï"));
-		list.add(new Goods("002","ÉĞ¿µ±ı¸É",14.5,"°ü"));
-		list.add(new Goods("003","ÒÆ¶¯Ó²ÅÌ",345.0,"¸ö"));
-		list.add(new Goods("004","¸ßÇåÎŞÂë",199.0,"G"));
-		Scanner sc = new Scanner(System.in);
-
-		while (true){
-			System.out.println("ÇëÊäÈëÄãÒª½øĞĞµÄ²Ù×÷£º");
-			System.out.println("1:¹ºÂòÉÌÆ·  2:½áËã²¢´òÓ¡Ğ¡Æ±   3:ÍË³öÏµÍ³");
-			int num = sc.nextInt();
-			switch(num){
-			case 1:  //¹ºÂòÉÌÆ·
-				showAllGoods(list);
-				break;
-			case 2:  //½áËã²¢´òÓ¡Ğ¡Æ±
-				payAndShow(list);
-				break;
-			case 3:
-				System.out.println("¸ĞĞ»ÄúÊ¹ÓÃ³¬ÊĞ¹ºÎïÏµÍ³£¬»¶Ó­ÏÂ´Î¹âÁÙ£¬°İ°İ");
-				System.exit(0);
-			default:
-				System.out.println("ÊäÈëÎŞ¶ÔÓ¦²Ù×÷£¬ÇëÖØĞÂÊäÈë");
-			}
-		}
+        while (true) {
+            System.out.println("è¯·è¾“å…¥ä½ è¦è¿›è¡Œçš„æ“ä½œï¼š");
+            System.out.println("1:è´­ä¹°å•†å“  2:ç»“ç®—å¹¶æ‰“å°å°ç¥¨   3:é€€å‡ºç³»ç»Ÿ");
+            int num = sc.nextInt();
+            switch (num) {
+                case 1:
+                    showAllGoods(list);
+                    break;
+                case 2:
+                    payAndShow(list);
+                    break;
+                case 3:
+                    System.out.println("æ„Ÿè°¢æ‚¨ä½¿ç”¨è¶…å¸‚è´­ç‰©ç³»ç»Ÿï¼Œæ¬¢è¿ä¸‹æ¬¡å…‰ä¸´ï¼Œæ‹œæ‹œ");
+                    System.exit(0);
+                default:
+                    System.out.println("è¾“å…¥æ— å¯¹åº”æ“ä½œï¼Œè¯·é‡æ–°è¾“å…¥");
+            }
+        }
 
 
-	}
+    }
 
-	//¶¨Òå·½·¨£¬ÊµÏÖ¹ºÂòÉÌÆ·µÄ²Ù×÷
-	public static void showAllGoods(ArrayList<Goods> list){
-		System.out.println("---------------------------");
-		System.out.println("          ÉÌÆ·ÁĞ±í         ");
-		System.out.println("ÉÌÆ·id\t\tÃû³Æ\t\tµ¥¼Û\t\t¼Æ¼Ûµ¥Î»");
-		for (int i = 0; i < list.size(); i++) {
-			Goods g = list.get(i);
-			System.out.println(g.getId()+"\t\t"+g.getName()+"\t\t"+g.getPrice()+"\t\t"+g.getUnit());
-		}
-		System.out.println("---------------------------");
-		System.out.println("ÇëÊäÈëÄúÒª¹ºÂòµÄÉÌÆ·Ïî£¨ÊäÈë¸ñÊ½£ºÉÌÆ·id-¹ºÂòÊıÁ¿£©,ÊäÈëend±íÊ¾¹ºÂò½áÊø¡£");
-		Scanner sc = new Scanner(System.in);
+    //å®šä¹‰æ–¹æ³•ï¼Œå®ç°è´­ä¹°å•†å“çš„æ“ä½œ
+    public static void showAllGoods(ArrayList<Goods> list) {
+        System.out.println("---------------------------");
+        System.out.println("          å•†å“åˆ—è¡¨         ");
+        System.out.println("å•†å“id\t\tåç§°\t\tå•ä»·\t\tè®¡ä»·å•ä½");
+        for (int i = 0; i < list.size(); i++) {
+            Goods g = list.get(i);
+            System.out.println(g.getId() + "\t\t" + g.getName() + "\t\t" + g.getPrice() + "\t\t" + g.getUnit());
+        }
+        System.out.println("---------------------------");
+        System.out.println("è¯·è¾“å…¥æ‚¨è¦è´­ä¹°çš„å•†å“é¡¹ï¼ˆè¾“å…¥æ ¼å¼ï¼šå•†å“id-è´­ä¹°æ•°é‡ï¼‰,è¾“å…¥endè¡¨ç¤ºè´­ä¹°ç»“æŸã€‚");
+        Scanner sc = new Scanner(System.in);
 
-		while(true){
-			String line = sc.nextLine();
-			String[] good = line.split("-");
+        while (true) {
+            String line = sc.nextLine();
+            String[] good = line.split("-");
 
-			if("end".equals(line)){
-				System.out.println("¹ºÂò½áÊø");
-				break;
-			}
-			//ÅĞ¶Ï¸ñÊ½ÊÇ·ñÕıÈ·
-			if(good.length!=2){
-				System.out.println("ÄãÊäÈëµÄ¹ºÂò×ËÊÆ²»¶Ô£¬Çë»»¸ö×ËÊÆÔÙÀ´Ò»´Î(¸ñÊ½£ºÉÌÆ·id-¹ºÂòÊıÁ¿)");
-				continue;
-			}
-			//ÅĞ¶ÏidÊÇ·ñ´æÔÚ
-			if(!isIdExist(list,good[0])){
-				System.out.println("ÄúÊäÈëµÄÉÌÆ·id²»´æÔÚ£¬ÇëÖØĞÂÊäÈë£¡");
-				continue;
-			}
+            if ("end".equals(line)) {
+                System.out.println("è´­ä¹°ç»“æŸ");
+                break;
+            }
+            if (good.length != 2) {
+                System.out.println("ä½ è¾“å…¥çš„è´­ä¹°å§¿åŠ¿ä¸å¯¹ï¼Œè¯·æ¢ä¸ªå§¿åŠ¿å†æ¥ä¸€æ¬¡(æ ¼å¼ï¼šå•†å“id-è´­ä¹°æ•°é‡)");
+                continue;
+            }
+            if (!isIdExist(list, good[0])) {
+                System.out.println("æ‚¨è¾“å…¥çš„å•†å“idä¸å­˜åœ¨ï¼Œè¯·é‡æ–°è¾“å…¥ï¼");
+                continue;
+            }
+            addGoods(list, good[0], Integer.valueOf(good[1]));
+        }
+    }
 
-			//Èç¹û³ÌĞòÔËĞĞµ½ÕâÀï£¬ËµÃ÷ÊäÈëÕıÈ·£¬Ìí¼Óµ½ÉÌÆ·ÀïÃæ
-			addGoods(list, good[0], Integer.valueOf(good[1]));
-		}
-	}
+    public static boolean isIdExist(ArrayList<Goods> list, String id) {
+        for (int i = 0; i < list.size(); i++) {
+            Goods g = list.get(i);
+            if (g.getId().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	//¶¨Òå·½·¨ÅĞ¶ÏÉÌÆ·idÊÇ·ñ´æÔÚ
-	public static boolean isIdExist(ArrayList<Goods> list,String id){
-		for (int i = 0; i < list.size(); i++) {
-			Goods g = list.get(i);
-			if(g.getId().equals(id)){
-				//±éÀú²éÕÒ£¬ÕÒµ½·µ»Øtrue
-				return true;
-			}
-		}
-		//ÕÒ²»µ½·µ»Øfalse
-		return false;
-	}
+    //å®šä¹‰æ–¹æ³•ï¼Œæ·»åŠ è´­ä¹°çš„å•†å“æ•°é‡
+    public static void addGoods(ArrayList<Goods> list, String id, int count) {
+        for (int i = 0; i < list.size(); i++) {
+            Goods g = list.get(i);
+            if (g.getId().equals(id)) {
+                int oldCount = g.getCount();
+                g.setCount(oldCount + count);
+                return;
+            }
+        }
+    }
 
-	//¶¨Òå·½·¨£¬Ìí¼Ó¹ºÂòµÄÉÌÆ·ÊıÁ¿
-	public static void addGoods(ArrayList<Goods> list, String id, int count){
-		//¸ù¾İid±éÀú²éÕÒ£¬¸üĞÂÊıÁ¿
-		for (int i = 0; i < list.size(); i++) {
-			// ÎÊÌâ£º¹¹Ôì·½·¨ÖĞÃ»ÓĞget()Õâ¸ö·½·¨
-			Goods g = list.get(i);
-			if(g.getId().equals(id)){
-				int oldCount = g.getCount();
-				g.setCount(oldCount+count);
-				return;
-			}
-		}
-	}
-
-
-	//¶¨Òå·½·¨£¬½áËã²¢´òÓ¡Ğ¡Æ±
-	public static void payAndShow(ArrayList<Goods> list){
-		System.out.println("---------------------------");
-		System.out.println("          »¶Ó­¹âÁÙ         ");
-		System.out.println("Ãû³Æ\tÊÛ¼Û\tÊıÁ¿\t½ğ¶î");
-
-		//¶¨Òå±äÁ¿Í³¼Æ¹ºÂòµÄÉÌÆ·ÖÖÀà
-		int type = 0;
-		//¶¨Òå±äÁ¿Í³¼Æ×Ü¹²ÂòÁË¼¸¼şÉÌÆ·
-		int all  = 0;
-		//¶¨Òå±äÁ¿Í³¼Æ×Ü½ğ¶î
-		double allMoney = 0.0;
-
-		for (int i = 0; i < list.size(); i++) {
-			Goods g = list.get(i);
-			//ÅĞ¶ÏÊıÁ¿ÊÇ·ñÎª0£¬Èç¹ûÊıÁ¿²»ÎªÁã£¬±íÊ¾ÓĞ¹ºÂò¸ÃÉÌÆ·
-			int count = g.getCount();
-			if(count!=0) {
-				//ÖÖÀà×ÔÔö
-				type++;
-				//ÊıÁ¿ÀÛ¼Ó
-				all+=count;
-				double price = g.getPrice(); //»ñÈ¡µ¥¼Û
-				double money = price * count; //Ã¿ÏîÉÌÆ·µÄ¹ºÂò½ğ¶î
-				//×Ü½ğ¶îÀÛ¼Ó
-				allMoney+=money;
-				System.out.println(g.getName() + "\t" + price + "\t" + count + "\t" + money);
-			}
-		}
-
-		System.out.println("---------------------------");
-		System.out.println(type+"ÏîÉÌÆ·");
-		System.out.println("¹²¼Æ£º"+all+"¼ş");
-		System.out.println("¹²£º"+allMoney+"Ôª");
-		System.out.println("---------------------------");
-
-		//×¢Òâ£º¹ºÂò²¢´òÓ¡ÍêĞ¡Æ±ºó£¬Òª¶ÔÔ­ÏÈµÄ¹ºÂò¼ÇÂ¼ÇåÁã
-		for (int i = 0; i < list.size(); i++) {
-			list.get(i).setCount(0);
-		}
-
-	}
-
+    //å®šä¹‰æ–¹æ³•ï¼Œç»“ç®—å¹¶æ‰“å°å°ç¥¨
+    public static void payAndShow(ArrayList<Goods> list) {
+        System.out.println("---------------------------");
+        System.out.println("          æ¬¢è¿å…‰ä¸´         ");
+        System.out.println("åç§°\tå”®ä»·\tæ•°é‡\té‡‘é¢");
+        int type = 0;
+        int all = 0;
+        double allMoney = 0.0;
+        for (int i = 0; i < list.size(); i++) {
+            Goods g = list.get(i);
+            int count = g.getCount();
+            if (count != 0) {
+                type++;
+                all += count;
+                double price = g.getPrice();
+                double money = price * count;
+                allMoney += money;
+                System.out.println(g.getName() + "\t" + price + "\t" + count + "\t" + money);
+            }
+        }
+        System.out.println("---------------------------");
+        System.out.println(type + "é¡¹å•†å“");
+        System.out.println("å…±è®¡ï¼š" + all + "ä»¶");
+        System.out.println("å…±ï¼š" + allMoney + "å…ƒ");
+        System.out.println("---------------------------");
+        //è´­ä¹°å¹¶æ‰“å°å®Œå°ç¥¨åï¼Œè¦å¯¹åŸå…ˆçš„è´­ä¹°è®°å½•æ¸…é›¶
+        for (int i = 0; i < list.size(); i++) {
+            list.get(i).setCount(0);
+        }
+    }
 }
+
